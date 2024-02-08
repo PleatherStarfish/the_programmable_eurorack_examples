@@ -1,30 +1,28 @@
 s.boot;
 
-(
-var midi;
-midi = Routine({
-    [60, 72, 71, 67, 69, 71, 72, 60, 69, 67].do({ |midiVal| midiVal.yield });
-});
+// Redefine ~generateValues to take an array of MIDI notes and apply the formula
+~generateValues = { |midiNotesArray|
+    midiNotesArray.collect { |midiNote|
+        (midiNote - 60) * (0.1 / 12);
+    }
+};
 
-SynthDef(\cvOut, { |volt = 0, out = 0, ref = 60|
-	var cvSignal
-    cvSignal = DC.ar(volt).linlin(-1, 1, -0.5, 0.5);
-    Out.ar(out, cvSignal);
+// Define your array of MIDI notes
+~midiNotes = [60, 72, 60, 48, 60, 72, 84, 96, 48, 84, 60, 72];
+
+// Define the SynthDef
+SynthDef(\dcBuffer, {
+    arg out = 0, value = 0;
+    var buff = LocalBuf.new(2, 1);
+    BufWr.ar(DC.ar(1) * value, buff, DC.ar(0));
+    Out.ar(out, Index.ar(buff, 0));
 }).add;
 
-r = Task({
-    var midiNote, cvValue;
-    // Calculate scale factor once outside the loop for efficiency.
-    var scaleFactor = max((0 - 60).abs, (127 - 60).abs); // Using 60 as the reference note
-    while {
-        midiNote = midi.next;
-        midiNote.notNil
-    } {
-        // Calculate the CV value for the current midiNote
-        cvValue = ((midiNote - 60) / scaleFactor).linlin(-1, 1, -0.5, 0.5);
-        "CV value for MIDI note %: %\n".format(midiNote, cvValue).post;
-        Synth(\cvOut, [volt: cvValue, out: 0]);
-        1.wait; // Wait for the specified duration, which is constant 1 second here
-    }
-}).play(quant: TempoClock.default.beats + 1.0);
+// Use Pmono to play back the generated CV values
+(
+b = Pmono(
+    \dcBuffer,
+    \value, Pseq(~generateValues.value(~midiNotes), inf),
+    \dur, 1/5,
+).play;
 )
