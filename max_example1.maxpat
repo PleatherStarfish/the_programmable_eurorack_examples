@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 59.0, 105.0, 1773.0, 1008.0 ],
+		"rect" : [ 815.0, 188.0, 1773.0, 1008.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -69,7 +69,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "float" ],
-					"patching_rect" : [ 359.200005352497101, 468.000006973743439, 29.5, 22.0 ],
+					"patching_rect" : [ 359.0, 423.0, 29.5, 22.0 ],
 					"text" : "* 1."
 				}
 
@@ -277,7 +277,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 400.000005960464478, 468.000006973743439, 197.300001114606857, 33.0 ],
+					"patching_rect" : [ 400.0, 423.0, 197.300001114606857, 33.0 ],
 					"text" : "Channel 1: CV Out\nChannel 2: Tuning oscillator"
 				}
 
@@ -303,7 +303,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 400.800005972385406, 503.200007498264313, 191.699995398521423, 47.0 ],
+					"patching_rect" : [ 401.0, 458.0, 191.699995398521423, 47.0 ],
 					"text" : "Note: Channel 1 output voltage is in the range of approx. -5V to 5V (compensated through calibration)"
 				}
 
@@ -494,7 +494,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 303.200004518032074, 468.000006973743439, 50.0, 22.0 ]
+					"patching_rect" : [ 303.0, 423.0, 50.0, 22.0 ]
 				}
 
 			}
@@ -602,7 +602,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 359.200005352497101, 503.200007498264313, 31.0, 22.0 ],
+					"patching_rect" : [ 359.0, 458.0, 31.0, 22.0 ],
 					"text" : "sig~"
 				}
 
@@ -615,7 +615,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 359.200005352497101, 412.000006139278412, 217.0, 27.0 ],
+					"patching_rect" : [ 359.0, 367.0, 217.0, 27.0 ],
 					"text" : "expr ($f1 - $f2) * (0.1 / 12.0)"
 				}
 
@@ -690,7 +690,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 2,
 					"numoutlets" : 0,
-					"patching_rect" : [ 359.200005352497101, 571.0, 55.0, 22.0 ],
+					"patching_rect" : [ 359.0, 526.0, 55.0, 22.0 ],
 					"text" : "dac~ 1 2"
 				}
 
@@ -720,7 +720,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-67", 1 ],
-					"midpoints" : [ 106.5, 402.466668605804443, 566.700005352497101, 402.466668605804443 ],
+					"midpoints" : [ 106.5, 354.466668605804443, 566.5, 354.466668605804443 ],
 					"order" : 0,
 					"source" : [ "obj-12", 0 ]
 				}
@@ -729,7 +729,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-22", 1 ],
-					"midpoints" : [ 650.5, 453.0, 379.200005352497101, 453.0 ],
+					"midpoints" : [ 650.5, 412.0, 379.0, 412.0 ],
 					"source" : [ "obj-126", 0 ]
 				}
 
@@ -773,7 +773,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-11", 1 ],
-					"midpoints" : [ 764.5, 562.400008380413055, 404.700005352497101, 562.400008380413055 ],
+					"midpoints" : [ 764.5, 516.400008380413055, 404.5, 516.400008380413055 ],
 					"source" : [ "obj-30", 0 ]
 				}
 
